@@ -17,6 +17,7 @@ BeerStyleRouter.patch('/beerstyle_temperature', async (req, res) => {
     return beerStyle;
   });
 
+  BeerStyleRouter.delete('/beerstyle', BeerStyleController.deleteAll);
 
 
 // BeerStyleRouter.patch('/beerstyle/:id', BeerStyleController.update);

@@ -83,6 +83,25 @@ class BeerStyleController {
 
     }
 
+    async deleteAll(req, res) {
+        try {
+          await BeearStyleModel.destroy({
+            where: {},
+            truncate: true
+          });
+      
+          res.json({
+            msg: 'Todas as cervejas foram deletadas com sucesso!'
+          });
+        } catch (error) {
+          console.log(error);
+          res.json({
+            msg: 'Erro ao deletar as cervejas'
+          });
+        }
+      }
+      
+
     delete(){
 
     }
