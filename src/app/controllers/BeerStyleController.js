@@ -53,7 +53,6 @@ class BeerStyleController {
 
     async findBeerStyleByTemperature(temperature) {
         const beerstyle = await BeearStyleModel.findAll();
-
         const beersWithDiff = beerstyle.map((beer) => {
             const avgTemperature = (Number(beer.maxtemperature) + Number(beer.mintemperature)) / 2;
             const diff = Math.abs(avgTemperature - temperature);
