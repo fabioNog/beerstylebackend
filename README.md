@@ -32,9 +32,7 @@ npm run dev
 # or
 yarn dev
 ```
-Dentro da Pasta lib se encontra o arquivo beer.ts, descomente esta url //const BASE_URL = "http://localhost:3001"; e comente a de cima, const BASE_URL = process.env.URL_LOCAL || "https://beearstyledeploy.onrender.com"; para utilizar em modo de desenvolvimento.
 
-Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
 
 
