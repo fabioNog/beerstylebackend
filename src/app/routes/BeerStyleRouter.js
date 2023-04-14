@@ -33,9 +33,7 @@ function escolherEstilo(numero) {
 }
 
 async function searchTrackByStyle(maxtemperature, accessToken) {
-  console.log(maxtemperature);
   let estilo = escolherEstilo(maxtemperature);
-  console.log(estilo);
   try {
     const response = await axios.get(`${SPOTIFY_API_URL}/search`, {
       params: {
@@ -75,7 +73,11 @@ BeerStyleRouter.get("/beerstyle_temperature", async (req, res) => {
     console.log("Entrei no try")
     const accessToken = await getAccessToken();
      const track = await searchTrackByStyle(beerStyle.maxtemperature, accessToken);
-    return res.send(track,beerStyle);
+     for (const propriedade in beerStyle.dataValues) {
+      track[propriedade] = beerStyle[propriedade];
+    }
+
+    return res.send(track);
   } catch (error) {
     console.error(error);
     return res.status(500).send("Failed to search for track.");
